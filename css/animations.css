@@ -1,0 +1,454 @@
+/* ========================================
+   Keyframe Animations
+   ======================================== */
+
+/* Pulse Animation */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+}
+
+/* Pulse Dot Animation */
+@keyframes pulse-dot {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(255, 68, 68, 0.7);
+    }
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0 0 0 10px rgba(255, 68, 68, 0);
+    }
+}
+
+/* Red Glow Animation */
+@keyframes glow-red {
+    0%, 100% {
+        box-shadow: 0 0 5px rgba(255, 68, 68, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(255, 68, 68, 0.6);
+    }
+}
+
+/* Bounce Animation */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0) rotate(45deg);
+    }
+    50% {
+        transform: translateY(-10px) rotate(45deg);
+    }
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Fade In Up Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Fade In Left Animation */
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Fade In Right Animation */
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Zoom In Animation */
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Float Animation */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* Rotate Animation */
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Glow Animation */
+@keyframes glow {
+    0%, 100% {
+        box-shadow: 0 0 5px rgba(212, 175, 55, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+    }
+}
+
+/* Slide In From Bottom */
+@keyframes slideInBottom {
+    from {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Gradient Shift Animation */
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Shimmer Effect */
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+/* Data Flow Animation */
+@keyframes dataFlow {
+    0% {
+        transform: translateX(-100%) translateY(-100%);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(100vw) translateY(100vh);
+        opacity: 0;
+    }
+}
+
+/* Scan Line Animation */
+@keyframes scanLine {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(100vh);
+    }
+}
+
+/* Blink Animation */
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.3;
+    }
+}
+
+/* ========================================
+   AOS (Animate On Scroll) Alternatives
+   ======================================== */
+
+/* Elements with data-aos attribute */
+[data-aos] {
+    opacity: 0;
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+[data-aos].aos-animate {
+    opacity: 1;
+}
+
+[data-aos="fade-up"].aos-animate {
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+[data-aos="fade-left"].aos-animate {
+    animation: fadeInLeft 0.8s ease forwards;
+}
+
+[data-aos="fade-right"].aos-animate {
+    animation: fadeInRight 0.8s ease forwards;
+}
+
+[data-aos="zoom-in"].aos-animate {
+    animation: zoomIn 0.8s ease forwards;
+}
+
+/* ========================================
+   Custom Animation Classes
+   ======================================== */
+
+.animate-pulse {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.animate-float {
+    animation: float 3s ease-in-out infinite;
+}
+
+.animate-rotate {
+    animation: rotate 20s linear infinite;
+}
+
+.animate-glow {
+    animation: glow 2s ease-in-out infinite;
+}
+
+.animate-shimmer {
+    position: relative;
+    overflow: hidden;
+}
+
+.animate-shimmer::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(212, 175, 55, 0.2),
+        transparent
+    );
+    animation: shimmer 3s infinite;
+}
+
+/* ========================================
+   Loading Animation
+   ======================================== */
+
+.loader {
+    width: 50px;
+    height: 50px;
+    border: 4px solid rgba(212, 175, 55, 0.2);
+    border-top-color: var(--gold-primary);
+    border-radius: 50%;
+    animation: rotate 1s linear infinite;
+}
+
+/* ========================================
+   Hover Effects
+   ======================================== */
+
+.hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+}
+
+.hover-glow {
+    transition: box-shadow 0.3s ease;
+}
+
+.hover-glow:hover {
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
+}
+
+.hover-scale {
+    transition: transform 0.3s ease;
+}
+
+.hover-scale:hover {
+    transform: scale(1.05);
+}
+
+/* ========================================
+   Page Transition Effects
+   ======================================== */
+
+.page-transition {
+    animation: fadeIn 0.5s ease;
+}
+
+/* ========================================
+   Parallax Effect
+   ======================================== */
+
+.parallax {
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* ========================================
+   Text Animations
+   ======================================== */
+
+.text-gradient {
+    background: linear-gradient(90deg, var(--gold-primary), var(--gold-bright), var(--gold-primary));
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientShift 3s ease infinite;
+}
+
+.text-glow {
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+    animation: glow 2s ease-in-out infinite;
+}
+
+/* ========================================
+   Stagger Animation Delays
+   ======================================== */
+
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
+.stagger-6 { animation-delay: 0.6s; }
+
+/* ========================================
+   Scroll Progress Indicator
+   ======================================== */
+
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold-primary), var(--gold-bright));
+    z-index: 9999;
+    transition: width 0.1s ease;
+}
+
+/* ========================================
+   Interactive Elements
+   ======================================== */
+
+.interactive-hover {
+    position: relative;
+    overflow: hidden;
+}
+
+.interactive-hover::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(212, 175, 55, 0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.interactive-hover:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+/* ========================================
+   Network Connection Lines Animation
+   ======================================== */
+
+@keyframes drawLine {
+    from {
+        stroke-dashoffset: 1000;
+    }
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+.network-line {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: drawLine 2s ease-in-out infinite;
+}
+
+/* Flow Animation for Data Streams */
+@keyframes flow {
+    0% {
+        opacity: 0;
+        height: 40px;
+    }
+    50% {
+        opacity: 1;
+        height: 100px;
+    }
+    100% {
+        opacity: 0;
+        height: 40px;
+    }
+}
+
+/* Scan Rotate Animation for AI Shield */
+@keyframes scan-rotate {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}

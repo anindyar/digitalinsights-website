@@ -1,0 +1,20 @@
+/* Option 1: Rich Charcoal with Blue Gradient */
+
+.hero {
+    background: linear-gradient(135deg,
+        #0e1621 0%,
+        #1a2634 50%,
+        #243447 100%) !important;
+}
+
+.hero::before {
+    background: linear-gradient(to bottom, rgba(14, 22, 33, 0.6) 0%, rgba(36, 52, 71, 0.3) 100%) !important;
+}
+
+.navbar {
+    background-color: rgba(14, 22, 33, 0.95) !important;
+}
+
+.navbar.scrolled {
+    background-color: rgba(14, 22, 33, 0.98) !important;
+}
