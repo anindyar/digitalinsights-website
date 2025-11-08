@@ -82,6 +82,11 @@
         display: flex;
     }
 
+    /* Hide emergency badge from navbar on mobile - it's fixed at bottom */
+    .nav-wrapper .emergency-badge {
+        display: none;
+    }
+
     .nav-toggle.active span:nth-child(1) {
         transform: rotate(45deg) translate(8px, 8px);
     }
