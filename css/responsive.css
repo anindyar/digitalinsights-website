@@ -82,9 +82,23 @@
         display: flex;
     }
 
-    /* Hide emergency badge from navbar on mobile - it's fixed at bottom */
-    .nav-wrapper .emergency-badge {
+    /* Hide desktop emergency badge from navbar on mobile */
+    .nav-wrapper > .emergency-badge {
         display: none;
+    }
+
+    /* Show mobile emergency badge inside menu */
+    .mobile-emergency {
+        border-bottom: none !important;
+        padding-top: 2rem !important;
+        display: block;
+    }
+
+    .emergency-badge-mobile {
+        width: 100%;
+        justify-content: center;
+        margin: 0;
+        font-size: 1rem;
     }
 
     .nav-toggle.active span:nth-child(1) {
@@ -235,7 +249,7 @@
     /* Hero - Note: horizontal padding handled above for safe areas */
     .hero {
         min-height: 100vh;
-        padding-top: 70px;
+        padding-top: 100px;
         padding-bottom: 80px;
     }
 
@@ -262,23 +276,18 @@
         padding: 0 0.5rem;
     }
 
-    .emergency-badge {
-        position: fixed;
-        bottom: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-        font-size: 0.75rem;
-        padding: 0.5rem 0.8rem;
+    .emergency-badge-mobile {
+        font-size: 0.9rem;
+        padding: 0.75rem 1rem;
         flex-direction: row;
         text-align: center;
-        gap: 0.4rem;
+        gap: 0.5rem;
         display: inline-flex;
-        max-width: 90%;
+        max-width: 100%;
         margin: 0;
         word-wrap: break-word;
         overflow-wrap: break-word;
         box-sizing: border-box;
-        z-index: 1000;
     }
 
     .badge-text {
@@ -437,11 +446,10 @@
         padding: 0 0.25rem;
     }
 
-    .emergency-badge {
-        font-size: 0.7rem;
-        padding: 0.4rem 0.7rem;
-        max-width: 92%;
-        gap: 0.3rem;
+    .emergency-badge-mobile {
+        font-size: 0.85rem;
+        padding: 0.6rem 0.9rem;
+        gap: 0.4rem;
     }
 
     .badge-text {
