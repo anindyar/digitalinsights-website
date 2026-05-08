@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Digital Forensics & Incident Response services by Digital Insights UAE. Expert evidence recovery, malware analysis, and breach remediation for government and enterprise clients.">
+    <title>Digital Forensics & Incident Response — Digital Insights UAE</title>
+    <link rel="icon" type="image/png" href="/logo/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="/css/main.css?v=3">
+    <link rel="stylesheet" href="/css/animations.css?v=3">
+    <link rel="stylesheet" href="/css/responsive.css?v=3">
+    <style>
+        .service-hero {
+            padding: 160px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .service-hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(ellipse at 50% 0%, rgba(0, 217, 255, 0.08) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        .service-hero-icon {
+            width: 90px;
+            height: 90px;
+            margin: 0 auto 2rem;
+            background: rgba(0, 217, 255, 0.1);
+            border: 1px solid rgba(0, 217, 255, 0.25);
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            color: var(--cyan-primary);
+        }
+        .service-hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 1rem;
+        }
+        .service-hero h1 .highlight {
+            color: var(--cyan-primary);
+        }
+        .service-hero p {
+            color: var(--text-light);
+            font-size: 1.2rem;
+            max-width: 720px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+        .service-body {
+            padding: 80px 0;
+        }
+        .service-section {
+            margin-bottom: 80px;
+        }
+        .service-section h2 {
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-white);
+        }
+        .service-section > p {
+            color: var(--text-light);
+            max-width: 800px;
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+        }
+        .subsection-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2rem;
+        }
+        .subsection-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 16px;
+            padding: 2.5rem;
+            transition: all var(--transition-normal);
+        }
+        .subsection-card:hover {
+            border-color: rgba(0, 217, 255, 0.2);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+        }
+        .subsection-card .card-icon {
+            width: 56px;
+            height: 56px;
+            background: rgba(0, 217, 255, 0.1);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: var(--cyan-primary);
+            margin-bottom: 1.25rem;
+        }
+        .subsection-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+        .subsection-card p {
+            color: var(--text-light);
+            line-height: 1.75;
+            font-size: 0.95rem;
+        }
+        .compliance-banner {
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.08), rgba(0, 217, 255, 0.02));
+            border: 1px solid rgba(0, 217, 255, 0.15);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 80px;
+        }
+        .compliance-banner h3 {
+            color: var(--cyan-primary);
+            margin-bottom: 0.75rem;
+            font-size: 1.3rem;
+        }
+        .compliance-banner p {
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+        .cta-section {
+            text-align: center;
+            padding: 80px 0;
+            background: linear-gradient(180deg, transparent, rgba(0, 217, 255, 0.03), transparent);
+        }
+        .cta-section h2 {
+            font-size: 2.4rem;
+            margin-bottom: 1rem;
+        }
+        .cta-section p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .breadcrumb {
+            padding: 20px 0 0;
+            font-size: 0.9rem;
+            color: var(--text-dark);
+        }
+        .breadcrumb a {
+            color: var(--text-light);
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            color: var(--cyan-primary);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <img src="/logo/DIC_LOGO.png" alt="Digital Insights" class="logo-img">
+                </div>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="/" class="nav-link">Home</a></li>
+                    <li><a href="/about" class="nav-link">Why Digital Insights</a></li>
+                    <li><a href="/services" class="nav-link active">Services</a></li>
+                    <li><a href="/blog" class="nav-link">Blog</a></li>
+                    <li><a href="/contact" class="nav-link">Contact</a></li>
+                    <li class="mobile-emergency">
+                        <div class="emergency-badge emergency-badge-mobile">
+                            <span class="pulse-dot"></span>
+                            <span class="badge-text">24/7 Emergency: <a href="tel:+97142415888">+971 4 2415888</a></span>
+                        </div>
+                    </li>
+                </ul>
+                <div class="emergency-badge">
+                    <span class="pulse-dot"></span>
+                    <span class="badge-text">24/7: <a href="tel:+97142415888">+971 4 2415888</a></span>
+                </div>
+                <div class="nav-toggle" id="navToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="service-hero">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="/">Home</a> &nbsp;/&nbsp; <a href="/#services">Services</a> &nbsp;/&nbsp; Digital Forensics & Incident Response
+            </div>
+            <div class="service-hero-icon">
+                <i class="fas fa-magnifying-glass-chart"></i>
+            </div>
+            <h1>Digital Forensics &<br><span class="highlight">Incident Response</span></h1>
+            <p>When a breach occurs, every second counts. Our DFIR team provides rapid, expert response to identify, contain, and remediate security incidents — preserving critical evidence and restoring operations with minimal disruption.</p>
+        </div>
+    </section>
+
+    <!-- Service Body -->
+    <section class="service-body">
+        <div class="container">
+
+            <!-- Overview -->
+            <div class="service-section">
+                <h2>Comprehensive DFIR Capabilities</h2>
+                <p>Our Digital Forensics and Incident Response practice combines deep technical expertise with battle-tested methodologies to help organizations across the UAE respond to and recover from cyber incidents. From initial triage through full remediation, we stand with you at every stage.</p>
+
+                <div class="subsection-grid">
+                    <div class="subsection-card">
+                        <div class="card-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3>Incident Response</h3>
+                        <p>Our 24/7 incident response team is ready to deploy at a moment's notice. We follow established IR frameworks to rapidly assess the scope of compromise, contain the threat, and begin recovery. Our experts work alongside your team to minimize business disruption and restore normal operations as quickly as possible.</p>
+                    </div>
+
+                    <div class="subsection-card">
+                        <div class="card-icon">
+                            <i class="fas fa-fingerprint"></i>
+                        </div>
+                        <h3>Forensic Investigation</h3>
+                        <p>Deep-dive forensic analysis of endpoints, servers, networks, and cloud environments. We reconstruct the attack timeline, identify the entry vector, map lateral movement, and determine the full scope of data exposure. Our investigations produce court-admissible reports suitable for regulatory and legal proceedings.</p>
+                    </div>
+
+                    <div class="subsection-card">
+                        <div class="card-icon">
+                            <i class="fas fa-bug"></i>
+                        </div>
+                        <h3>Malware Analysis</h3>
+                        <p>Advanced static and dynamic malware analysis in our dedicated sandbox environments. We reverse-engineer malicious payloads to understand attacker intent, capabilities, and infrastructure. This intelligence feeds directly into our containment and remediation strategies.</p>
+                    </div>
+
+                    <div class="subsection-card">
+                        <div class="card-icon">
+                            <i class="fas fa-shield-halved"></i>
+                        </div>
+                        <h3>Breach Remediation</h3>
+                        <p>End-to-end remediation support that goes beyond containment. We help you eradicate threats from your environment, patch exploited vulnerabilities, harden compromised systems, and implement long-term safeguards to prevent recurrence. Our goal is to leave your environment more secure than before the incident.</p>
+                    </div>
+
+                    <div class="subsection-card">
+                        <div class="card-icon">
+                            <i class="fas fa-box-archive"></i>
+                        </div>
+                        <h3>Evidence Preservation</h3>
+                        <p>Forensically sound evidence collection and preservation following international standards and chain-of-custody protocols. We capture volatile and persistent data, create forensic images, and maintain meticulous documentation to support legal proceedings, insurance claims, and regulatory reporting requirements.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- UAE Compliance -->
+            <div class="compliance-banner">
+                <h3><i class="fas fa-scale-balanced" style="margin-right: 0.5rem;"></i> UAE Regulatory Compliance</h3>
+                <p>Our DFIR services are fully aligned with the <strong>UAE Federal Decree-Law No. 34 of 2021</strong> on Combatting Rumours and Cybercrimes, as well as <strong>UAE Personal Data Protection Law (PDPL)</strong> requirements. We ensure that all incident handling, evidence preservation, and reporting meet the standards expected by UAE regulatory authorities, including the <strong>Telecommunications and Digital Government Regulatory Authority (TDRA)</strong> and <strong>Cyber Security Council</strong>. Our team provides the documentation and breach notification support needed to maintain compliance with local and international regulations.</p>
+            </div>
+
+            <!-- Process -->
+            <div class="service-section">
+                <h2>Our Response Process</h2>
+                <p>A structured, proven methodology that ensures rapid and thorough incident handling:</p>
+
+                <div class="subsection-grid">
+                    <div class="subsection-card">
+                        <div class="card-icon">
+                            <i class="fas fa-phone-volume"></i>
+                        </div>
+                        <h3>1. Triage & Scoping</h3>
+                        <p>Initial assessment of the incident severity, scope, and potential impact. We classify the event, activate the appropriate response tier, and establish communication channels within minutes of engagement.</p>
+                    </div>
+
+                    <div class="subsection-card">
+                        <div class="card-icon">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <h3>2. Containment</h3>
+                        <p>Immediate actions to prevent further damage — isolating affected systems, blocking malicious indicators, revoking compromised credentials, and securing the perimeter while preserving forensic evidence.</p>
+                    </div>
+
+                    <div class="subsection-card">
+                        <div class="card-icon">
+                            <i class="fas fa-microscope"></i>
+                        </div>
+                        <h3>3. Investigation & Analysis</h3>
+                        <p>Comprehensive forensic investigation to understand the full attack chain. We identify the root cause, map the extent of compromise, and determine what data was accessed or exfiltrated.</p>
+                    </div>
+
+                    <div class="subsection-card">
+                        <div class="card-icon">
+                            <i class="fas fa-broom"></i>
+                        </div>
+                        <h3>4. Eradication & Recovery</h3>
+                        <p>Complete removal of threat actors from your environment, rebuilding compromised systems, and restoring operations with verified clean backups. We validate that no persistence mechanisms remain.</p>
+                    </div>
+
+                    <div class="subsection-card">
+                        <div class="card-icon">
+                            <i class="fas fa-file-lines"></i>
+                        </div>
+                        <h3>5. Post-Incident Review</h3>
+                        <p>Detailed reporting with executive summaries, technical findings, and prioritized recommendations. We conduct lessons-learned sessions and help implement improvements to strengthen your security posture against future incidents.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Under Attack? Don't Wait.</h2>
+            <p>Our DFIR team is available 24/7. The faster you respond, the less damage attackers can do.</p>
+            <a href="/contact" class="btn btn-primary" style="margin-right: 1rem;">Get Protected Now</a>
+            <a href="tel:+97142415888" class="btn btn-secondary">Emergency Hotline: +971 4 2415888</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="/services/dfir.html">Digital Forensics & Incident Response</a></li>
+                        <li><a href="/services/soc.html">Security Operations Center</a></li>
+                        <li><a href="/services/penetration-testing.html">Penetration Testing</a></li>
+                        <li><a href="/services/security-assessments.html">Security Assessments</a></li>
+                        <li><a href="/services/platform-engineering.html">Platform Engineering</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Locations</h3>
+                    <div style="margin-bottom: 1.5rem;">
+                        <p style="font-weight: 600; color: #fff; margin-bottom: 0.5rem;">Dubai, UAE</p>
+                        <p style="font-size: 0.9rem; color: #B8B8B8; margin: 0;">
+                            Office 211D Ibn Battuta Gate Offices<br>
+                            Dubai, United Arab Emirates
+                        </p>
+                    </div>
+                    <div>
+                        <p style="font-weight: 600; color: #fff; margin-bottom: 0.5rem;">Milton Keynes, UK</p>
+                        <p style="font-size: 0.9rem; color: #B8B8B8; margin: 0;">
+                            Acorn House, 381 Midsummer Blvd<br>
+                            Milton Keynes MK9 3HP<br>
+                            United Kingdom
+                        </p>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="/about">About Us</a></li>
+                        <li><a href="/blog">Blog</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                        <li><a href="/privacy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact</h3>
+                    <p style="font-size: 0.9rem; color: #B8B8B8; margin: 0 0 0.75rem 0;">
+                        <i class="fas fa-envelope" style="color: var(--cyan-primary); margin-right: 0.5rem;"></i>
+                        <a href="mailto:info@digitalinsights-uae.com" style="color: #B8B8B8; text-decoration: none;">info@digitalinsights-uae.com</a>
+                    </p>
+                    <p style="font-size: 0.9rem; color: #B8B8B8; margin: 0 0 0.75rem 0;">
+                        <i class="fas fa-phone" style="color: var(--cyan-primary); margin-right: 0.5rem;"></i>
+                        <a href="tel:+97142415888" style="color: #B8B8B8; text-decoration: none;">+971 4 2415888</a>
+                    </p>
+                    <p style="font-size: 0.9rem; color: #B8B8B8; margin: 0;">
+                        <i class="fas fa-location-dot" style="color: var(--cyan-primary); margin-right: 0.5rem;"></i>
+                        Dubai, UAE
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h3>Connect & Support</h3>
+                    <div class="social-links" style="margin-bottom: 1.5rem;">
+                        <a href="https://www.linkedin.com/company/dicuae/posts/?feedView=all" target="_blank" rel="noopener noreferrer" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                    <p style="font-size: 0.85rem; color: #B8B8B8; margin: 0;">
+                        <strong style="color: #fff;">Emergency Support:</strong><br>
+                        <a href="tel:+97142415888" style="color: #00D9FF; text-decoration: none;">+971 4 2415888</a><br>
+                        <span style="font-size: 0.8rem;">Available 24/7</span>
+                    </p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Digital Insights. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/main.js"></script>
+</body>
+</html>

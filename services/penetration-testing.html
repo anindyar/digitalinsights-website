@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Penetration Testing services by Digital Insights UAE. Network, web application, cloud, and social engineering testing by certified ethical hackers.">
+    <title>Penetration Testing — Digital Insights UAE</title>
+    <link rel="icon" type="image/png" href="/logo/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="/css/main.css?v=3">
+    <link rel="stylesheet" href="/css/animations.css?v=3">
+    <link rel="stylesheet" href="/css/responsive.css?v=3">
+    <style>
+        .service-hero {
+            padding: 160px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .service-hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(ellipse at 50% 0%, rgba(0, 217, 255, 0.08) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        .service-hero-icon {
+            width: 90px;
+            height: 90px;
+            margin: 0 auto 2rem;
+            background: rgba(0, 217, 255, 0.1);
+            border: 1px solid rgba(0, 217, 255, 0.25);
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            color: var(--cyan-primary);
+        }
+        .service-hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 1rem;
+        }
+        .service-hero h1 .highlight {
+            color: var(--cyan-primary);
+        }
+        .service-hero p {
+            color: var(--text-light);
+            font-size: 1.2rem;
+            max-width: 720px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+        .service-body {
+            padding: 80px 0;
+        }
+        .service-section {
+            margin-bottom: 80px;
+        }
+        .service-section h2 {
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-white);
+        }
+        .service-section > p {
+            color: var(--text-light);
+            max-width: 800px;
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+        }
+        .subsection-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2rem;
+        }
+        .subsection-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 16px;
+            padding: 2.5rem;
+            transition: all var(--transition-normal);
+        }
+        .subsection-card:hover {
+            border-color: rgba(0, 217, 255, 0.2);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+        }
+        .subsection-card .card-icon {
+            width: 56px;
+            height: 56px;
+            background: rgba(0, 217, 255, 0.1);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: var(--cyan-primary);
+            margin-bottom: 1.25rem;
+        }
+        .subsection-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+        .subsection-card p {
+            color: var(--text-light);
+            line-height: 1.75;
+            font-size: 0.95rem;
+        }
+        .cert-banner {
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.08), rgba(0, 217, 255, 0.02));
+            border: 1px solid rgba(0, 217, 255, 0.15);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 80px;
+            text-align: center;
+        }
+        .cert-banner h3 {
+            color: var(--cyan-primary);
+            margin-bottom: 0.75rem;
+            font-size: 1.3rem;
+        }
+        .cert-banner p {
+            color: var(--text-light);
+            line-height: 1.8;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .cert-badges {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+        .cert-badge {
+            background: rgba(0, 217, 255, 0.08);
+            border: 1px solid rgba(0, 217, 255, 0.2);
+            padding: 0.5rem 1.2rem;
+            border-radius: 8px;
+            color: var(--cyan-primary);
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        .cta-section {
+            text-align: center;
+            padding: 80px 0;
+            background: linear-gradient(180deg, transparent, rgba(0, 217, 255, 0.03), transparent);
+        }
+        .cta-section h2 {
+            font-size: 2.4rem;
+            margin-bottom: 1rem;
+        }
+        .cta-section p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .breadcrumb {
+            padding: 20px 0 0;
+            font-size: 0.9rem;
+            color: var(--text-dark);
+        }
+        .breadcrumb a {
+            color: var(--text-light);
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            color: var(--cyan-primary);
+        }
+        .methodology-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .method-step {
+            text-align: center;
+            padding: 2rem 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 16px;
+        }
+        .method-step .step-num {
+            font-size: 2rem;
+            font-weight: 700;
+            font-family: var(--font-heading);
+            color: var(--cyan-primary);
+            margin-bottom: 0.5rem;
+        }
+        .method-step h4 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        .method-step p {
+            color: var(--text-light);
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <img src="/logo/DIC_LOGO.png" alt="Digital Insights" class="logo-img">
+                </div>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="/" class="nav-link">Home</a></li>
+                    <li><a href="/about" class="nav-link">Why Digital Insights</a></li>
+                    <li><a href="/services" class="nav-link active">Services</a></li>
+                    <li><a href="/blog" class="nav-link">Blog</a></li>
+                    <li><a href="/contact" class="nav-link">Contact</a></li>
+                    <li class="mobile-emergency">
+                        <div class="emergency-badge emergency-badge-mobile">
+                            <span class="pulse-dot"></span>
+                            <span class="badge-text">24/7 Emergency: <a href="tel:+97142415888">+971 4 2415888</a></span>
+                        </div>
+                    </li>
+                </ul>
+                <div class="emergency-badge">
+                    <span class="pulse-dot"></span>
+                    <span class="badge-text">24/7: <a href="tel:+97142415888">+971 4 2415888</a></span>
+                </div>
+                <div class="nav-toggle" id="navToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="service-hero">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="/">Home</a> &nbsp;/&nbsp; <a href="/#services">Services</a> &nbsp;/&nbsp; Penetration Testing
+            </div>
+            <div class="service-hero-icon">
+                <i class="fas fa-user-secret"></i>
+            </div>
+            <h1><span class="highlight">Penetration Testing</span></h1>
+            <p>Think like an attacker before they do. Our certified ethical hackers simulate real-world adversarial attacks to identify exploitable vulnerabilities across your infrastructure, applications, and people — providing actionable remediation before criminals find the same weaknesses.</p>
+        </div>
+    </section>
+
+    <!-- Service Body -->
+    <section class="service-body">
+        <div class="container">
+
+            <!-- Testing Services -->
+            <div class="service-section">
+                <h2>Our Penetration Testing Services</h2>
+                <p>We offer a full spectrum of offensive security testing, tailored to your environment, risk profile, and compliance requirements.</p>
+
+                <div class="subsection-grid">
+                    <div class="subsection-card">
+                        <div class="card-icon">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <h3>Network Penetration Testing</h3>
+                        <p>Comprehensive assessment of your internal and external network infrastructure. We test firewalls, routers, switches, servers, and endpoints for misconfigurations, unpatched vulnerabilities, and design weaknesses. Both black-box and white-box approaches available to simulate different attacker perspectives.</p>
+                    </div>
+
+                    <div class="subsection-card">
+                        <div class="card-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h3>Web Application Testing</h3>
+                        <p>In-depth security testing of web applications and APIs following OWASP Top 10 and OWASP API Security Top 10 methodologies. We identify injection flaws, authentication bypasses, authorization issues, session management weaknesses, and business logic vulnerabilities that automated scanners miss.</p>
+                    </div>
+
+                    <div class="subsection-card">
+                        <div class="card-icon">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <h3>Cloud Infrastructure Testing</h3>
+                        <p>Targeted assessment of cloud environments across AWS, Azure, and Google Cloud. We evaluate IAM policies, storage configurations, network security groups, serverless functions, and container workloads for misconfigurations and privilege escalation paths unique to cloud-native architectures.</p>
+                    </div>
+
+                    <div class="subsection-card">
+                        <div class="card-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Social Engineering</h3>
+                        <p>Realistic phishing campaigns, vishing (voice phishing), pretexting, and physical security assessments to test your organization's human layer. We measure employee awareness, test security controls, and provide targeted training recommendations to build a security-conscious culture.</p>
+                    </div>
+
+                    <div class="subsection-card">
+                        <div class="card-icon">
+                            <i class="fas fa-skull-crossbones"></i>
+                        </div>
+                        <h3>Red Team Exercises</h3>
+                        <p>Advanced, multi-stage adversary simulations that test your entire security program — detection, response, and resilience. Our red team operates with full adversarial tradecraft to emulate sophisticated nation-state and organized crime threat actors, providing a true test of your defensive capabilities.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certifications -->
+            <div class="cert-banner">
+                <h3><i class="fas fa-certificate" style="margin-right: 0.5rem;"></i> Certified Ethical Hackers</h3>
+                <p>Our penetration testing team holds industry-leading certifications and operates under strict ethical guidelines, Rules of Engagement, and comprehensive scope definitions. Every engagement includes detailed documentation, risk-rated findings, and prioritized remediation guidance.</p>
+                <div class="cert-badges">
+                    <span class="cert-badge"><i class="fas fa-check" style="margin-right: 0.4rem;"></i> OSCP</span>
+                    <span class="cert-badge"><i class="fas fa-check" style="margin-right: 0.4rem;"></i> OSCE</span>
+                    <span class="cert-badge"><i class="fas fa-check" style="margin-right: 0.4rem;"></i> CEH</span>
+                    <span class="cert-badge"><i class="fas fa-check" style="margin-right: 0.4rem;"></i> CRTP</span>
+                    <span class="cert-badge"><i class="fas fa-check" style="margin-right: 0.4rem;"></i> GPEN</span>
+                    <span class="cert-badge"><i class="fas fa-check" style="margin-right: 0.4rem;"></i> CPTS</span>
+                </div>
+            </div>
+
+            <!-- Methodology -->
+            <div class="service-section">
+                <h2>Our Testing Methodology</h2>
+                <p>A structured approach based on industry-standard frameworks (PTES, OWASP, MITRE ATT&CK) ensures thorough and consistent results:</p>
+
+                <div class="methodology-steps">
+                    <div class="method-step">
+                        <div class="step-num">01</div>
+                        <h4>Scoping & Planning</h4>
+                        <p>Define targets, rules of engagement, and communication protocols</p>
+                    </div>
+                    <div class="method-step">
+                        <div class="step-num">02</div>
+                        <h4>Reconnaissance</h4>
+                        <p>Passive and active information gathering on the target environment</p>
+                    </div>
+                    <div class="method-step">
+                        <div class="step-num">03</div>
+                        <h4>Enumeration</h4>
+                        <p>Identify services, ports, technologies, and potential attack surfaces</p>
+                    </div>
+                    <div class="method-step">
+                        <div class="step-num">04</div>
+                        <h4>Exploitation</h4>
+                        <p>Attempt to exploit identified vulnerabilities to demonstrate impact</p>
+                    </div>
+                    <div class="method-step">
+                        <div class="step-num">05</div>
+                        <h4>Post-Exploitation</h4>
+                        <p>Assess the full impact of compromise and lateral movement potential</p>
+                    </div>
+                    <div class="method-step">
+                        <div class="step-num">06</div>
+                        <h4>Reporting</h4>
+                        <p>Detailed report with findings, risk ratings, and remediation steps</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Deliverables -->
+            <div class="service-section">
+                <h2>What You Receive</h2>
+                <p>Every penetration test engagement delivers comprehensive, actionable output:</p>
+
+                <div class="subsection-grid">
+                    <div class="subsection-card">
+                        <div class="card-icon">
+                            <i class="fas fa-file-shield"></i>
+                        </div>
+                        <h3>Executive Report</h3>
+                        <p>High-level summary of findings, business impact assessment, risk ratings, and strategic recommendations designed for C-suite and board-level audiences.</p>
+                    </div>
+
+                    <div class="subsection-card">
+                        <div class="card-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3>Technical Report</h3>
+                        <p>Detailed technical documentation of every finding with step-by-step reproduction instructions, proof of concept evidence, and specific remediation guidance with code examples where applicable.</p>
+                    </div>
+
+                    <div class="subsection-card">
+                        <div class="card-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3>Remediation Support</h3>
+                        <p>Post-test consultation to walk your team through findings and remediation strategies. We offer optional retesting to validate that all vulnerabilities have been properly addressed.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Find Your Weaknesses Before Attackers Do</h2>
+            <p>A penetration test is the most direct way to understand your real-world security posture. Let our experts show you what an attacker would see.</p>
+            <a href="/contact" class="btn btn-primary" style="margin-right: 1rem;">Schedule a Pen Test</a>
+            <a href="tel:+97142415888" class="btn btn-secondary">Call Us: +971 4 2415888</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="/services/dfir.html">Digital Forensics & Incident Response</a></li>
+                        <li><a href="/services/soc.html">Security Operations Center</a></li>
+                        <li><a href="/services/penetration-testing.html">Penetration Testing</a></li>
+                        <li><a href="/services/security-assessments.html">Security Assessments</a></li>
+                        <li><a href="/services/platform-engineering.html">Platform Engineering</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Locations</h3>
+                    <div style="margin-bottom: 1.5rem;">
+                        <p style="font-weight: 600; color: #fff; margin-bottom: 0.5rem;">Dubai, UAE</p>
+                        <p style="font-size: 0.9rem; color: #B8B8B8; margin: 0;">
+                            Office 211D Ibn Battuta Gate Offices<br>
+                            Dubai, United Arab Emirates
+                        </p>
+                    </div>
+                    <div>
+                        <p style="font-weight: 600; color: #fff; margin-bottom: 0.5rem;">Milton Keynes, UK</p>
+                        <p style="font-size: 0.9rem; color: #B8B8B8; margin: 0;">
+                            Acorn House, 381 Midsummer Blvd<br>
+                            Milton Keynes MK9 3HP<br>
+                            United Kingdom
+                        </p>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="/about">About Us</a></li>
+                        <li><a href="/blog">Blog</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                        <li><a href="/privacy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact</h3>
+                    <p style="font-size: 0.9rem; color: #B8B8B8; margin: 0 0 0.75rem 0;">
+                        <i class="fas fa-envelope" style="color: var(--cyan-primary); margin-right: 0.5rem;"></i>
+                        <a href="mailto:info@digitalinsights-uae.com" style="color: #B8B8B8; text-decoration: none;">info@digitalinsights-uae.com</a>
+                    </p>
+                    <p style="font-size: 0.9rem; color: #B8B8B8; margin: 0 0 0.75rem 0;">
+                        <i class="fas fa-phone" style="color: var(--cyan-primary); margin-right: 0.5rem;"></i>
+                        <a href="tel:+97142415888" style="color: #B8B8B8; text-decoration: none;">+971 4 2415888</a>
+                    </p>
+                    <p style="font-size: 0.9rem; color: #B8B8B8; margin: 0;">
+                        <i class="fas fa-location-dot" style="color: var(--cyan-primary); margin-right: 0.5rem;"></i>
+                        Dubai, UAE
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h3>Connect & Support</h3>
+                    <div class="social-links" style="margin-bottom: 1.5rem;">
+                        <a href="https://www.linkedin.com/company/dicuae/posts/?feedView=all" target="_blank" rel="noopener noreferrer" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                    <p style="font-size: 0.85rem; color: #B8B8B8; margin: 0;">
+                        <strong style="color: #fff;">Emergency Support:</strong><br>
+                        <a href="tel:+97142415888" style="color: #00D9FF; text-decoration: none;">+971 4 2415888</a><br>
+                        <span style="font-size: 0.8rem;">Available 24/7</span>
+                    </p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Digital Insights. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/main.js"></script>
+</body>
+</html>
