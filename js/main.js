@@ -211,25 +211,14 @@ function initContactForm() {
                 message: formData.get('message')
             };
 
-            // Send to local server proxy (secure, hides form ID)
-            // Falls back to Formspree if server is unavailable
-            fetch('/api/send-email', {
+            // Submit to FormSubmit.co (no signup needed, delivers to info@digitalinsights-uae.com)
+            fetch('https://formsubmit.co/ajax/info@digitalinsights-uae.com', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
                 },
                 body: JSON.stringify(data)
-            })
-            .catch(() => {
-                // Fallback to Formspree if server is down
-                return fetch('https://formspree.io/f/mnnkpglj', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Accept': 'application/json'
-                    },
-                    body: JSON.stringify(data)
-                });
             })
             .then(response => {
                 // Show success popup after 2-3 seconds delay
