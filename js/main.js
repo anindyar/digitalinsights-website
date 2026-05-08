@@ -100,7 +100,7 @@ function initScrollAnimations() {
 // ========================================
 
 function initCounterAnimations() {
-    const counters = document.querySelectorAll('.stat-number, .stat-number-large');
+    const counters = document.querySelectorAll('.stat-number, .stat-number-large:not(.stat-static)');
 
     const observerOptions = {
         threshold: 0.5
@@ -120,6 +120,8 @@ function initCounterAnimations() {
 
 function animateCounter(element) {
     const target = parseFloat(element.getAttribute('data-target'));
+    const suffix = element.getAttribute('data-suffix') || '';
+    const prefix = element.getAttribute('data-prefix') || '';
     const duration = 2000; // 2 seconds
     const increment = target / (duration / 16); // 60fps
     let current = 0;
@@ -130,30 +132,30 @@ function animateCounter(element) {
         if (current < target) {
             // Format number based on size
             if (target >= 1000000) {
-                element.textContent = (current / 1000000).toFixed(1) + 'M+';
+                element.textContent = prefix + (current / 1000000).toFixed(1) + 'M+';
             } else if (target >= 1000) {
-                element.textContent = Math.floor(current / 1000) + 'K+';
+                element.textContent = prefix + Math.floor(current / 1000) + 'K+';
             } else if (target >= 100) {
-                element.textContent = Math.floor(current) + '+';
+                element.textContent = prefix + Math.floor(current) + '+';
             } else if (target % 1 !== 0) {
-                element.textContent = current.toFixed(1);
+                element.textContent = prefix + current.toFixed(1);
             } else {
-                element.textContent = Math.floor(current);
+                element.textContent = prefix + Math.floor(current);
             }
 
             requestAnimationFrame(updateCounter);
         } else {
             // Final value
             if (target >= 1000000) {
-                element.textContent = (target / 1000000).toFixed(1) + 'M+';
+                element.textContent = prefix + (target / 1000000).toFixed(1) + 'M+';
             } else if (target >= 1000) {
-                element.textContent = Math.floor(target / 1000) + 'K+';
+                element.textContent = prefix + Math.floor(target / 1000) + 'K+';
             } else if (target >= 100) {
-                element.textContent = Math.floor(target) + '+';
+                element.textContent = prefix + Math.floor(target) + '+';
             } else if (target % 1 !== 0) {
-                element.textContent = target.toFixed(1);
+                element.textContent = prefix + target.toFixed(1);
             } else {
-                element.textContent = Math.floor(target);
+                element.textContent = prefix + Math.floor(target) + suffix;
             }
         }
     };
