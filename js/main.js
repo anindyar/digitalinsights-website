@@ -203,22 +203,22 @@ function initContactForm() {
             submitButton.disabled = true;
             submitButton.textContent = 'Sending...';
 
-            // Collect form data as JSON
+            // Collect form data
             const formData = new FormData(form);
             const data = {
-                from_name: formData.get('name'),
-                from_email: formData.get('email'),
+                name: formData.get('name'),
+                email: formData.get('email'),
                 phone: formData.get('phone'),
                 service: formData.get('service'),
-                message: formData.get('message')
+                message: formData.get('message'),
+                source: 'Contact Form'
             };
 
-            // Submit to FormSubmit.co (no signup needed, delivers to info@digitalinsights-uae.com)
-            fetch('https://formsubmit.co/ajax/info@digitalinsights-uae.com', {
+            // Submit to Airtable via Cloudflare Function
+            fetch('/submit-contact', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
+                    'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(data)
             })
