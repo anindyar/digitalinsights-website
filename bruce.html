@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="BRUCE — The first agentic SOC analyst. Autonomous 24/7 monitoring, intelligent triage, automated incident response, and continuous learning.">
+    <title>BRUCE - Agentic SOC Analyst | Digital Insights</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="logo/favicon.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/main.css?v=3">
+    <link rel="stylesheet" href="css/animations.css?v=3">
+    <link rel="stylesheet" href="css/responsive.css?v=3">
+
+    <style>
+        /* BRUCE Page Specific Styles */
+        .bruce-hero {
+            padding: 160px 0 100px;
+            background: var(--bg-black);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bruce-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at 50% 30%, rgba(0, 217, 255, 0.08) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .bruce-hero-content {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .bruce-hero-badge {
+            display: inline-block;
+            background: rgba(0, 217, 255, 0.08);
+            border: 1px solid rgba(0, 217, 255, 0.2);
+            border-radius: 50px;
+            padding: 0.5rem 1.5rem;
+            font-size: 0.85rem;
+            color: var(--cyan-primary);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+
+        .bruce-hero h1 {
+            font-size: 4.5rem;
+            letter-spacing: -0.03em;
+            margin-bottom: 0.5rem;
+        }
+
+        .bruce-hero h1 .bruce-name {
+            background: linear-gradient(135deg, var(--cyan-primary), var(--blue-primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .bruce-hero .bruce-acronym {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        .bruce-hero .bruce-acronym-letter {
+            color: var(--cyan-primary);
+            font-weight: 700;
+        }
+
+        .bruce-hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 1.5rem auto 2.5rem;
+            line-height: 1.8;
+        }
+
+        .bruce-hero-ctas {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-bruce-page {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2.5rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: var(--transition-normal);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-bruce-primary {
+            background: linear-gradient(135deg, var(--cyan-primary), var(--blue-primary));
+            color: var(--bg-black);
+        }
+
+        .btn-bruce-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 40px rgba(0, 217, 255, 0.3);
+        }
+
+        .btn-bruce-secondary {
+            background: rgba(0, 217, 255, 0.08);
+            border: 1px solid rgba(0, 217, 255, 0.25);
+            color: var(--cyan-primary);
+        }
+
+        .btn-bruce-secondary:hover {
+            background: rgba(0, 217, 255, 0.15);
+            transform: translateY(-3px);
+        }
+
+        /* Comparison Section */
+        .comparison-section {
+            padding: var(--section-padding) 0;
+            background: var(--bg-dark);
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .comparison-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 2.5rem;
+            border: 1px solid rgba(0, 217, 255, 0.08);
+            transition: var(--transition-normal);
+        }
+
+        .comparison-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .comparison-card.traditional {
+            border-color: rgba(255, 68, 68, 0.15);
+        }
+
+        .comparison-card.agentic {
+            border-color: rgba(0, 217, 255, 0.2);
+            box-shadow: 0 0 60px rgba(0, 217, 255, 0.03);
+        }
+
+        .comparison-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .comparison-card .card-subtitle {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .comparison-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .comparison-list li {
+            padding: 0.6rem 0;
+            font-size: 0.95rem;
+            color: var(--text-light);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .comparison-list li:last-child {
+            border-bottom: none;
+        }
+
+        .comparison-list li i {
+            margin-top: 0.3rem;
+            font-size: 0.8rem;
+        }
+
+        .comparison-list .icon-red { color: var(--accent-red); }
+        .comparison-list .icon-green { color: var(--accent-green); }
+
+        /* Capabilities Deep Dive */
+        .capabilities-section {
+            padding: var(--section-padding) 0;
+            background: var(--bg-black);
+        }
+
+        .capabilities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .capability-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 217, 255, 0.08);
+            border-radius: 20px;
+            padding: 2.5rem 2rem;
+            transition: var(--transition-normal);
+        }
+
+        .capability-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(0, 217, 255, 0.2);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 40px rgba(0, 217, 255, 0.05);
+        }
+
+        .capability-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.12), rgba(74, 158, 255, 0.08));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--cyan-primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .capability-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .capability-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* CTA Section */
+        .bruce-cta-section {
+            padding: var(--section-padding) 0;
+            background: var(--bg-dark);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bruce-cta-section::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0, 217, 255, 0.06) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .bruce-cta-section h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .bruce-cta-section p {
+            color: var(--text-light);
+            font-size: 1.15rem;
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.8;
+            position: relative;
+        }
+
+        @media (max-width: 768px) {
+            .bruce-hero h1 {
+                font-size: 2.8rem;
+            }
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+            .bruce-hero-ctas {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="logo/DIC_LOGO.png" alt="Digital Insights" class="logo-img">
+                    </a>
+                </div>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="index.html#about" class="nav-link">Why Digital Insights</a></li>
+                    <li><a href="index.html#services" class="nav-link">Services</a></li>
+                    <li><a href="bruce.html" class="nav-link active">BRUCE</a></li>
+                    <li><a href="index.html#blog" class="nav-link">Blog</a></li>
+                    <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+                </ul>
+                <div class="emergency-badge">
+                    <span class="pulse-dot"></span>
+                    <span class="badge-text">24/7: <a href="tel:+97142415888">+971 4 2415888</a></span>
+                </div>
+                <div class="nav-toggle" id="navToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="bruce-hero">
+        <div class="container">
+            <div class="bruce-hero-content">
+                <div class="bruce-hero-badge">Agentic SOC</div>
+                <h1>
+                    <span class="bruce-name">B.R.U.C.E.</span>
+                </h1>
+                <p class="bruce-acronym">
+                    <span class="bruce-acronym-letter">B</span>eyond 
+                    <span class="bruce-acronym-letter">R</span>eactive: 
+                    <span class="bruce-acronym-letter">U</span>nified 
+                    <span class="bruce-acronym-letter">C</span>yber 
+                    <span class="bruce-acronym-letter">E</span>ngine
+                </p>
+                <p class="bruce-hero-subtitle">
+                    The first agentic SOC analyst. BRUCE doesn't just monitor — it thinks, triages, responds, and learns. 
+                    A true autonomous teammate for your security operations.
+                </p>
+                <div class="bruce-hero-ctas">
+                    <a href="index.html#contact" class="btn-bruce-page btn-bruce-primary">
+                        <i class="fas fa-calendar-check"></i> Book a Demo
+                    </a>
+                    <a href="index.html#contact" class="btn-bruce-page btn-bruce-secondary">
+                        <i class="fas fa-play-circle"></i> See BRUCE in Action
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Traditional vs Agentic SOC -->
+    <section class="comparison-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Why Agentic?</h2>
+                <p class="section-subtitle">Traditional SOCs are drowning in alerts. BRUCE changes the game.</p>
+            </div>
+            <div class="comparison-grid">
+                <div class="comparison-card traditional">
+                    <h3>Traditional SOC</h3>
+                    <p class="card-subtitle">Reactive, alert-fatigued, human-dependent</p>
+                    <ul class="comparison-list">
+                        <li><i class="fas fa-times-circle icon-red"></i> Analysts overwhelmed by thousands of daily alerts</li>
+                        <li><i class="fas fa-times-circle icon-red"></i> Slow triage — critical threats get lost in the noise</li>
+                        <li><i class="fas fa-times-circle icon-red"></i> Playbook automation is rigid and rule-based only</li>
+                        <li><i class="fas fa-times-circle icon-red"></i> Significant blind spots after hours and weekends</li>
+                        <li><i class="fas fa-times-circle icon-red"></i> High cost of staffing skilled analysts around the clock</li>
+                        <li><i class="fas fa-times-circle icon-red"></i> Static detection rules miss novel attack patterns</li>
+                    </ul>
+                </div>
+                <div class="comparison-card agentic">
+                    <h3>BRUCE — Agentic SOC</h3>
+                    <p class="card-subtitle">Autonomous, context-aware, continuously learning</p>
+                    <ul class="comparison-list">
+                        <li><i class="fas fa-check-circle icon-green"></i> Intelligent triage separates signal from noise automatically</li>
+                        <li><i class="fas fa-check-circle icon-green"></i> Sub-15 minute mean time to respond, 24/7/365</li>
+                        <li><i class="fas fa-check-circle icon-green"></i> Dynamic response playbooks that adapt to each incident</li>
+                        <li><i class="fas fa-check-circle icon-green"></i> No blind spots — continuous autonomous monitoring</li>
+                        <li><i class="fas fa-check-circle icon-green"></i> Augments your team — no headcount dependency</li>
+                        <li><i class="fas fa-check-circle icon-green"></i> Learns your environment and evolves with new threats</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Capabilities Deep Dive -->
+    <section class="capabilities-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">How BRUCE Works</h2>
+                <p class="section-subtitle">A deep dive into the autonomous security engine</p>
+            </div>
+            <div class="capabilities-grid">
+                <div class="capability-card">
+                    <div class="capability-icon">
+                        <i class="fas fa-satellite-dish"></i>
+                    </div>
+                    <h4>24/7 Autonomous Monitoring</h4>
+                    <p>BRUCE continuously scans your entire attack surface — endpoints, networks, cloud infrastructure, and applications. No shifts, no gaps, no downtime. Every data point is ingested and analyzed in real time.</p>
+                </div>
+                <div class="capability-card">
+                    <div class="capability-icon">
+                        <i class="fas fa-filter"></i>
+                    </div>
+                    <h4>Intelligent Alert Triage</h4>
+                    <p>Context-aware analysis that correlates signals across your SIEM, EDR, and threat intelligence feeds. BRUCE understands the difference between a false positive and a genuine threat — and prioritizes accordingly.</p>
+                </div>
+                <div class="capability-card">
+                    <div class="capability-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h4>Automated Incident Response</h4>
+                    <p>When BRUCE identifies a threat, it doesn't wait for human approval. Orchestrated response playbooks contain and remediate incidents in seconds — isolating hosts, blocking IPs, and rolling back changes automatically.</p>
+                </div>
+                <div class="capability-card">
+                    <div class="capability-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h4>Continuous Learning</h4>
+                    <p>BRUCE adapts to your unique environment. It learns your network topology, user behavior patterns, and organizational workflows — getting smarter and more accurate over time with every incident it processes.</p>
+                </div>
+                <div class="capability-card">
+                    <div class="capability-icon">
+                        <i class="fas fa-plug"></i>
+                    </div>
+                    <h4>SIEM & SOAR Integration</h4>
+                    <p>BRUCE plugs into your existing stack — Splunk, Sentinel, Elastic, CrowdStrike, and more. It enriches your SIEM data with context and orchestrates responses through your SOAR platform, no rip-and-replace required.</p>
+                </div>
+                <div class="capability-card">
+                    <div class="capability-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h4>Real-Time Behavioral Analysis</h4>
+                    <p>Using ML-powered behavioral baselines, BRUCE detects anomalous activity that signature-based tools miss — lateral movement, credential abuse, data exfiltration, and zero-day exploitation patterns.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="bruce-cta-section">
+        <div class="container">
+            <h2>Ready to Meet BRUCE?</h2>
+            <p>See how an agentic SOC analyst can transform your security operations. Book a personalized demo and watch BRUCE respond to real threats in real time.</p>
+            <div class="bruce-hero-ctas">
+                <a href="index.html#contact" class="btn-bruce-page btn-bruce-primary">
+                    <i class="fas fa-calendar-check"></i> Book a Demo
+                </a>
+                <a href="index.html#contact" class="btn-bruce-page btn-bruce-secondary">
+                    <i class="fas fa-play-circle"></i> See BRUCE in Action
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="index.html#services">Digital Forensics & Incident Response</a></li>
+                        <li><a href="index.html#services">Security Operations Center</a></li>
+                        <li><a href="index.html#services">Penetration Testing</a></li>
+                        <li><a href="index.html#services">Security Assessments</a></li>
+                        <li><a href="index.html#services">Platform Engineering</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Locations</h3>
+                    <div style="margin-bottom: 1.5rem;">
+                        <p style="font-weight: 600; color: #fff; margin-bottom: 0.5rem;">Dubai, UAE</p>
+                        <p style="font-size: 0.9rem; color: #B8B8B8; margin: 0;">
+                            Office 211D Ibn Battuta Gate Offices<br>
+                            Dubai, United Arab Emirates
+                        </p>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="index.html#blog">Blog</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact</h3>
+                    <p style="font-size: 0.9rem; color: #B8B8B8; margin: 0 0 0.75rem 0;">
+                        <i class="fas fa-envelope" style="color: var(--cyan-primary); margin-right: 0.5rem;"></i>
+                        <a href="mailto:info@digitalinsights-uae.com" style="color: #B8B8B8; text-decoration: none;">info@digitalinsights-uae.com</a>
+                    </p>
+                    <p style="font-size: 0.9rem; color: #B8B8B8; margin: 0 0 0.75rem 0;">
+                        <i class="fas fa-phone" style="color: var(--cyan-primary); margin-right: 0.5rem;"></i>
+                        <a href="tel:+97142415888" style="color: #B8B8B8; text-decoration: none;">+971-4-XXX-XXXX</a>
+                    </p>
+                    <p style="font-size: 0.9rem; color: #B8B8B8; margin: 0;">
+                        <i class="fas fa-location-dot" style="color: var(--cyan-primary); margin-right: 0.5rem;"></i>
+                        Dubai, UAE
+                    </p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Digital Insights. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1868,6 +1868,97 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ========================================
+   Team Section
+   ======================================== */
+
+.team-section {
+    padding: var(--section-padding) 0;
+    background: var(--bg-black);
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.team-card {
+    background: var(--bg-card);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 217, 255, 0.08);
+    border-radius: 20px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    transition: var(--transition-normal);
+}
+
+.team-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(0, 217, 255, 0.25);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 40px rgba(0, 217, 255, 0.05);
+}
+
+.team-avatar {
+    margin-bottom: 1.5rem;
+}
+
+.team-avatar-placeholder {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(0, 217, 255, 0.15), rgba(74, 158, 255, 0.1));
+    border: 2px solid rgba(0, 217, 255, 0.2);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: var(--cyan-primary);
+}
+
+.team-name {
+    font-size: 1.4rem;
+    margin-bottom: 0.3rem;
+}
+
+.team-role {
+    color: var(--cyan-primary);
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    letter-spacing: 0.5px;
+}
+
+.team-bio {
+    color: var(--text-light);
+    font-size: 0.92rem;
+    line-height: 1.7;
+    margin-bottom: 1.2rem;
+}
+
+.team-social a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(0, 217, 255, 0.08);
+    color: var(--cyan-primary);
+    font-size: 1rem;
+    transition: var(--transition-normal);
+    text-decoration: none;
+}
+
+.team-social a:hover {
+    background: var(--cyan-primary);
+    color: var(--bg-black);
+    transform: translateY(-2px);
+}
+
+/* ========================================
    Trusted By Section
    ======================================== */
 
